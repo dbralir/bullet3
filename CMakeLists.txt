@@ -1,8 +1,9 @@
 cmake_minimum_required(VERSION 3.0)
+project(Bullet)
 
 function(bullet_init_lib name)
-	file(GLOB_RECURSE ${name}_SRCS src/${name}/*.cpp src/${name}/*.h)
-	add_library(${name} ${${name}_SRCS})
+    file(GLOB_RECURSE ${name}_SRCS ${PROJECT_SOURCE_DIR}/src/${name}/*.cpp ${PROJECT_SOURCE_DIR}/src/${name}/*.h)
+    add_library(${name} ${${name}_SRCS})
     set_property(TARGET ${name} PROPERTY CXX_STANDARD 14)
     target_include_directories(${name} PUBLIC src)
 endfunction()
